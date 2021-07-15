@@ -17,7 +17,7 @@ async function Main() {
   // data = await pullData()
   console.log(await (await pullData()).text())
 
-  let data = JSON.parse(await pullData())
+  let data = JSON.parse(await (await pullData()).text())
   let male = 0
   let female = 0
   for (let index = 0; index < data.length; index++) {
@@ -31,7 +31,10 @@ async function Main() {
     }
   }
 
-  document.getElementById('Gender') = `Male: ${male} , Female: ${female}`
+  document.getElementById(
+    'Gender',
+  ).innerHTML = `Male: ${male} , Female: ${female}`
+
   console.log(male, female)
 }
 
